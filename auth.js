@@ -12,6 +12,10 @@ export function AuthContext(props){
    const loginHandler=(token)=>{
 settoken(token);
 localStorage.setItem('token',token);
+setTimeout(()=>{
+   settoken(null);
+   localStorage.removeItem('token')
+},50000);
    }
    const userIsLogedin=!!token;
    const logoutHandler=()=>{
